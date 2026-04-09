@@ -19,7 +19,7 @@ A command-line task and project management tool written in **C++**, with a **Pyt
 
 ## Summary
 
-Project Manager Plus lets a user create projects, add standard or **timed** tasks to them, track task state (ToDo / Doing / Done), and persist everything to disk between runs. Its headline feature is a **Smart Analysis Report**: the program serializes the current project state to JSON, hands it off to a Python script powered by pandas, and reads back a structured report containing project summaries, per-project completion percentages, and the **top three tasks the user should work on next** — each with a human-readable reason for the recommendation.
+Project Manager Plus lets a user create projects, add standard or **timed** tasks to them, track task state (ToDo / Doing / Done), and persist everything to disk between runs. Its headline feature is a **Smart Analysis Report**: the program serializes the current project state to JSON, hands it off to a Python script powered by pandas, and reads back a structured report containing project summaries, per-project completion percentages, and the **top three tasks the user should work on next**  each with a human-readable reason for the recommendation.
 
 The recommendation engine uses a weighted scoring system that takes into account project priority, project status, task state, task type, and (for timed tasks) how much time is left on the timer.
 
@@ -34,14 +34,14 @@ The recommendation engine uses a weighted scoring system that takes into account
 | Timed tasks | Tasks with built-in countdown timers that can be started, paused, and reset. Timer state survives program restarts by syncing against the system clock. |
 | Persistent storage | All projects and tasks are saved to a JSON file on exit and reloaded on startup. |
 | Smart Analysis Report | Exports project data, runs a Python pandas pipeline, and prints a summary, per-project completion breakdown, and the top three recommended next tasks with reasons. |
-| Input validation | Defensive input handling throughout the menu system — invalid entries are rejected without crashing. |
+| Input validation | Defensive input handling throughout the menu system  invalid entries are rejected without crashing. |
 
 ---
 
 ## Languages and Why
 
-- **C++ (C++20)** — used for the program's foundation: the object model (`Project`, `Task`, `TimedTask`, `CountdownTimer`), the menu-driven UI, persistence, and the bridge to Python. C++ was chosen because it's fast, has strong static typing, and supports the kind of polymorphism (`Task` → `TimedTask`) the project relies on.
-- **Python 3** — used exclusively for the Smart Analysis Report. Python with pandas is well-suited to lightweight tabular data work: building a DataFrame of tasks, scoring them, sorting, and producing a structured output is far more concise in pandas than it would be in C++.
+- **C++ (C++20)**  used for the program's foundation: the object model (`Project`, `Task`, `TimedTask`, `CountdownTimer`), the menu-driven UI, persistence, and the bridge to Python. C++ was chosen because it's fast, has strong static typing, and supports the kind of polymorphism (`Task` → `TimedTask`) the project relies on.
+- **Python 3**  used exclusively for the Smart Analysis Report. Python with pandas is well-suited to lightweight tabular data work: building a DataFrame of tasks, scoring them, sorting, and producing a structured output is far more concise in pandas than it would be in C++.
 
 ---
 
@@ -56,7 +56,7 @@ The recommendation engine uses a weighted scoring system that takes into account
 - Python 3.8+
 - pandas (`pip install pandas`)
 
-The **nlohmann/json** C++ library does **not** need to be installed manually — `CMakeLists.txt` fetches it automatically via `FetchContent`.
+The **nlohmann/json** C++ library does **not** need to be installed manually  `CMakeLists.txt` fetches it automatically via `FetchContent`.
 
 ### Build steps
 
@@ -85,10 +85,10 @@ For the Smart Analysis Report to work, `python` must be on your system `PATH` an
 
 ## Dependencies
 
-| Dependency | Purpose | Installation |
-|---|---|---|
-| [nlohmann/json](https://github.com/nlohmann/json) | C++ JSON serialization | Auto-fetched by CMake — no action required |
-| [pandas](https://pandas.pydata.org/) | Python data analysis | `pip install pandas` |
+| Dependency | Purpose | Installation                              |
+|---|---|-------------------------------------------|
+| [nlohmann/json](https://github.com/nlohmann/json) | C++ JSON serialization | Auto-fetched by CMake  no action required |
+| [pandas](https://pandas.pydata.org/) | Python data analysis | `pip install pandas`                      |
 
 ---
 
@@ -97,8 +97,8 @@ For the Smart Analysis Report to work, `python` must be on your system `PATH` an
 **All code in this repository was written by me. ** I did consult external documentation and reference articles for specific C++ idioms and pandas usage; those references are listed below.
 
 ### Library documentation referenced
-- **nlohmann/json** — https://github.com/nlohmann/json and https://json.nlohmann.me/
-- **pandas** — https://www.w3schools.com/python/pandas/default.asp
+- **nlohmann/json**  https://github.com/nlohmann/json and https://json.nlohmann.me/
+- **pandas**  https://www.w3schools.com/python/pandas/default.asp
 
 ### C++ technique references
 - Clearing and handling invalid `cin` input (`std::cin.clear()` / `std::cin.ignore()`):
@@ -121,3 +121,7 @@ For the Smart Analysis Report to work, `python` must be on your system `PATH` an
 - Use Python (e.g. matplotlib) to generate visual charts from the analysis data, in addition to the text report.
 - Tagging and filtering of tasks.
 - Multi-user support with separate save files per user.
+
+
+
+Originally created for my Adv Programming class, adapted for personal use, feel free to fork and edit for your own usage
