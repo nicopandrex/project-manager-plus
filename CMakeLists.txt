@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 4.0)
-project(M3OEP_nlippiat)
+project(project_manager_plus)
 
 set(CMAKE_CXX_STANDARD 20)
 
@@ -11,7 +11,7 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(nlohmann_json)
 
-add_executable(M3OEP_nlippiat
+add_executable(project_manager_plus
 	main.cpp
 	Project.cpp
 	Task.cpp
@@ -19,4 +19,4 @@ add_executable(M3OEP_nlippiat
 	Persistence.cpp
 	AnalysisBridge.cpp)
 
-target_link_libraries(M3OEP_nlippiat PRIVATE nlohmann_json::nlohmann_json)
+target_link_libraries(project_manager_plus PRIVATE nlohmann_json::nlohmann_json)
