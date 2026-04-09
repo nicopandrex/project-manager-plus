@@ -9,13 +9,10 @@ A command-line task and project management tool written in **C++**, with a **Pyt
 - [Summary](#summary)
 - [Features](#features)
 - [Languages and Why](#languages-and-why)
-- [Architecture](#architecture)
-- [Project Structure](#project-structure)
 - [Installation and Build](#installation-and-build)
 - [Running the Program](#running-the-program)
 - [Dependencies](#dependencies)
 - [Authorship and Citations](#authorship-and-citations)
-- [Known Issues](#known-issues)
 - [Future Work](#future-work)
 
 ---
